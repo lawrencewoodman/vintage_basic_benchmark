@@ -1,0 +1,122 @@
+10 REM basic benchmark
+20 REM inspired by qsbb from qlay sinclair ql emulator
+30 REM
+40 REM copyright (c) 2019 lawrence woodman
+50 REM licensed under an mit licence.
+
+100 DIM z(20): REM array used later
+110 POKE 23692,0: REM turn off scroll prompt
+
+200 PRINT "basic benchmark"
+210 PRINT "7 tests, 20 seconds each"
+220 PRINT
+
+300 PRINT "calibrating...";
+310 GO SUB 600: LET t=ti
+320 FOR i=1 TO 100
+330 NEXT i
+340 GO SUB 600: LET ca=ti-t
+
+350 GO SUB 600: LET t=ti
+360 FOR i=1 TO 100
+370 GO SUB 600
+380 NEXT i
+390 GO SUB 600: LET cb=ti-t
+
+400 LET ct=(cb-ca)/100
+410 PRINT "ok"
+
+500 GO TO 1000
+
+600 LET ta=65536*PEEK 23674+256*PEEK 23673+PEEK 23672
+610 LET tb=65536*PEEK 23674+256*PEEK 23673+PEEK 23672
+620 LET ti=ta: IF tb > ta THEN LET ta=tb
+630 RETURN
+
+1000 REM calculate benchmarks
+1010 PRINT
+1020 PRINT "please wait..."
+1030 PRINT
+
+1100 GO SUB 600:LET t=ti
+1110 LET p=0
+1120 FOR i=1 TO 20
+1130 PRINT ".";
+1140 NEXT i
+1150 LET p=p+1
+1160 GO SUB 600:IF ti-t<=1000 THEN GO TO 1120
+1170 LET p=INT (p/(1000-(ct*p))*1000)
+
+1300 GO SUB 600:LET t=ti
+1310 LET f=0
+1320 FOR i=1 TO 20
+1330 LET ra=SIN 0.1:LET rb=LN 4:LET rc=EXP 10
+1340 NEXT i
+1350 LET f=f+1
+1360 GO SUB 600: IF ti-t<=1000 THEN GO TO 1320
+1370 LET f=INT (f/(1000-(ct*f))*1000)
+
+1500 GO SUB 600: LET t=ti
+1510 LET s=0
+1520 FOR i=1 TO 20
+1530 LET a$="abcdefghijklmnopqrstuvwxyz"
+1540 LET b$="zyxwvutsrqponmlkjihgfedcba"
+1550 LET c$=a$+b$
+1560 NEXT i
+1570 LET s=s+1
+1580 GO SUB 600: IF ti-t<=1000 THEN GO TO 1520
+1590 LET s=INT (s/(1000-(ct*s))*1000)
+
+1700 GO SUB 600: LET t=ti
+1710 LET l=0
+1720 FOR i=1 TO 20
+1730 FOR j=1 TO i: NEXT j
+1740 NEXT i
+1750 LET l=l+1
+1760 GO SUB 600: IF ti-t<=1000 THEN GO TO 1720
+1770 LET l=INT (l/(1000-(ct*l))*1000)
+
+1800 GO TO 1820
+1810 RETURN
+1820 GO SUB 600: LET t=ti
+1830 LET g=0
+1840 FOR i=1 TO 20
+1850 GO SUB 1810:GO SUB 1900
+1860 NEXT i
+1870 LET g=g+1
+1880 GO SUB 600: IF ti-t<=1000 THEN GO TO 1840
+1890 GO TO 1910
+1900 RETURN
+1910 LET g=INT (g/(1000-(ct*g))*1000)
+
+2000 GO SUB 600: LET t=ti
+2010 LET a=0
+2020 FOR i=1 TO 20
+2030 LET z(i)=i:LET b=z(i)
+2040 NEXT i
+2050 LET a=a+1
+2060 GO SUB 600: IF ti-t<=1000 THEN GO TO 2020
+2070 LET a=INT (a/(1000-(ct*a))*1000)
+
+2200 GO SUB 600: LET t=ti
+2210 LET m=0
+2220 LET ka=5
+2230 LET kb=6.2
+2240 FOR i=1 TO 20
+2250 LET r=ka+kb-ka/kb*ka*kb
+2260 LET r=5+6.2-5/6.2*5*6.2
+2270 NEXT i
+2280 LET m=m+1
+2290 GO SUB 600: IF ti-t<=1000 THEN GO TO 2240
+2300 LET m=INT (m/(1000-(ct*m))*1000)
+
+3010 PRINT:PRINT
+3020 PRINT "results"
+3030 PRINT "======="
+3040 PRINT "printing:  "; p
+3050 PRINT "functions: "; f
+3060 PRINT "strings:   "; s
+3070 PRINT "for loops: "; l
+3080 PRINT "gosubs:    "; g
+3090 PRINT "arrays:    "; a
+3100 PRINT "maths:     "; m
