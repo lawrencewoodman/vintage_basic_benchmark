@@ -7,6 +7,7 @@ Machines Tested
 ---------------
 
 Commodore: Pet 8032, Vic-20, C64, C128, Plus/4
+
 Sinclair: Spectrum 48k
 
 Contributing
