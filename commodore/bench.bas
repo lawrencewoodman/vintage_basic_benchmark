@@ -2,7 +2,7 @@
 20 rem inspired by qsbb from qlay sinclair ql emulator
 30 rem
 40 rem copyright (c) 2019 lawrence woodman
-50 rem licensed under an mit licence.
+50 rem licensed under an mit licence
 
 100 rem array used later
 110 dim ar(20)

@@ -2,7 +2,7 @@
 20 REM inspired by qsbb from qlay sinclair ql emulator
 30 REM
 40 REM copyright (c) 2019 lawrence woodman
-50 REM licensed under an mit licence.
+50 REM licensed under an mit licence
 
 100 DIM z(20): REM array used later
 110 POKE 23692,0: REM turn off scroll prompt

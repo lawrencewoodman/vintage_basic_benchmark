@@ -3,7 +3,7 @@
 30 rem this requires an 80 column monitor
 40 rem
 50 rem copyright (c) 2019 lawrence woodman
-60 rem licensed under an mit licence.
+60 rem licensed under an mit licence
 
 100 rem array used later
 110 dim ar(20)
