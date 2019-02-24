@@ -1,0 +1,103 @@
+10 REM basic benchmark
+20 REM inspired by qsbb from qlay sinclair ql emulator
+30 REM
+40 REM copyright (c) 2019 lawrence woodman
+50 REM licensed under an mit licence
+
+100 REM array used later
+110 DIM ar(20)
+
+200 CLOSE#1
+210 OPEN#1,con_256x202a256x0
+220 INK#1,7:PAPER#1,2:BORDER#1,1,7,0
+230 mode 4
+240 PRINT#2,\"Basic Benchmark"
+250 PRINT#2,"7 tests, 20 seconds each"
+260 PRINT#2,\"Please wait..."
+
+1000 t=DATE
+1010 p=0
+1020 REPeat l1
+1030 FOR i=1 TO 20
+1040  PRINT ".";
+1050 NEXT i
+1060 p=p+1
+1070 IF DATE-t>20:EXIT l1
+1080 END REPeat l1
+1090 PRINT#2,"Printing:      ";p
+
+1300 t=DATE
+1310 p=0
+1320 REPeat l2
+1330 FOR i=1 TO 20
+1340  a=SIN(0.1):b=LN(4):c=EXP(10)
+1350 NEXT i
+1360 p=p+1
+1370 IF DATE-t>20: EXIT l2
+1380 END REPeat l2
+1390 PRINT#2,"Functions:     ";p
+
+1500 t=DATE
+1510 p=0
+1520 REPeat l3
+1530 FOR i=1 TO 20
+1540  a$="abcdefghijklmnopqrstuvwxyz"
+1550  b$="zyxwvutsrqponmlkjihgfedcba"
+1560  c$=a$&b$
+1570 NEXT i
+1580 p=p+1
+1590 IF DATE-t>20:EXIT l3
+1600 END REPeat l3
+1610 PRINT#2,"Strings:       ";p
+
+1800 t=DATE
+1810 p=0
+1820 REPeat l4
+1830 FOR i=1 TO 20
+1840  FOR j=1 TO i: NEXT j
+1850 NEXT i
+1860 p=p+1
+1870 IF DATE-t>20:EXIT l4
+1880 END REPeat l4
+1890 PRINT#2,"For Loops:     ";p
+
+2000 GOTO 2020
+2010 RETURN
+2020 t=DATE
+2030 p=0
+2040 REPeat l5
+2050 FOR i=1 TO 20
+2060  GOSUB 2010:GOSUB 2130
+2070 NEXT i
+2080 p=p+1
+2090 IF DATE-t>20:EXIT l5
+2100 END REPeat l5
+2110 PRINT#2,"Gosubs:        ";p
+2120 GOTO 2140
+2130 RETURN
+2140 :
+
+2300 t=DATE
+2310 p=0
+2320 REPeat l6
+2330 FOR i=1 TO 20
+2340  ar(i)=i:b=ar(i)
+2350 NEXT i
+2360 p=p+1
+2370 IF DATE-t>20:EXIT l6
+2380 END REPeat l6
+2390 PRINT#2,"Arrays:        ";p
+
+2500 t=DATE
+2510 p=0
+2520 ka=5
+2530 kb=6.2
+2540 REPeat l7
+2550 FOR i=1 TO 20
+2560  r=ka+kb-ka/kb*ka*kb
+2570  r=5+6.2-5/6.2*5*6.2
+2580 NEXT i
+2590 p=p+1
+2600 IF DATE-t>20:EXIT l7
+2610 END REPeat l7
+2620 PRINT#2,"Maths:         ";p
