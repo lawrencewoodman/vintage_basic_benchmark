@@ -7,7 +7,7 @@
 100 rem array used later
 110 dim ar(20)
 
-150 rem set up timer using 200Hz system clock
+150 rem set up timer
 160 DEF SEG=0:DEFDBL c: c=&h4BC
 
 200 print "basic benchmark"
