@@ -45,7 +45,7 @@
 1700 t=ti
 1710 l=0
 1720 for i=1 to 20
-1730 for j=1 to i: next j
+1730 for j=1 to 20: next j
 1740 next i
 1750 l=l+1
 1760 if ti-t<=1200 then goto 1720

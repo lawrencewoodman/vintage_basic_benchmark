@@ -61,7 +61,7 @@
 1710 l=0
 1720 do
 1730 for i=1 to 20
-1740 for j=1 to i: next j
+1740 for j=1 to 20: next j
 1750 next i
 1760 l=l+1
 1770 loop until ti-t>1200
