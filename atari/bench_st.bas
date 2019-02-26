@@ -124,4 +124,4 @@
 3070 print "for loops: "; l
 3080 print "gosubs:    "; g
 3090 print "arrays:    "; a
-3090 print "maths:     "; m
+3100 print "maths:     "; m
