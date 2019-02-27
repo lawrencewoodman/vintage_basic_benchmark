@@ -6,11 +6,14 @@ A benchmark tool written in Basic for various vintage computers.
 Machines Tested
 ---------------
 
+Amstrad: PCW 9512
+
+Atari: ST
+
 Commodore: Pet 8032, Vic-20, C64, C128, Plus/4
 
 Sinclair: Spectrum 48k, QL
 
-Atari: ST
 
 Contributing
 ------------
