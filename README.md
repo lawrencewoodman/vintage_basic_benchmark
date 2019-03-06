@@ -6,7 +6,7 @@ A benchmark tool written in Basic for various vintage computers.
 Machines Tested
 ---------------
 
-Amstrad: PCW 9256
+Amstrad: CPC 6128, PCW 9256
 
 Atari: ST
 
