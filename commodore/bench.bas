@@ -16,72 +16,79 @@
 1020 print "please wait..."
 1030 print
 
-1100 t=ti
-1110 p=0
-1120 for i=1 to 20
-1130 print ".";
-1140 next i
-1150 p=p+1
-1160 if ti-t<=1200 then goto 1120
+1100 rem benchmark printing
+1110 t=ti
+1120 p=0
+1130 for i=1 to 20
+1140 print ".";
+1150 next i
+1160 p=p+1
+1170 if ti-t<=1200 then goto 1130
 
-1300 t=ti
-1310 f=0
-1320 for i=1 to 20
-1330 ra=sin(0.1):rb=log(4):rc=exp(10)
-1340 next i
-1350 f=f+1
-1360 if ti-t<=1200 then goto 1320
+1300 rem benchmark functions
+1310 t=ti
+1320 f=0
+1330 for i=1 to 20
+1340 ra=sin(0.1):rb=log(4):rc=exp(10)
+1350 next i
+1360 f=f+1
+1370 if ti-t<=1200 then goto 1330
 
-1500 t=ti
-1510 s=0
-1520 for i=1 to 20
-1530 a$="abcdefghijklmnopqrstuvwxyz"
-1540 b$="zyxwvutsrqponmlkjihgfedcba"
-1550 c$=a$+b$
-1560 next i
-1570 s=s+1
-1580 if ti-t<=1200 then goto 1520
+1500 rem benchmark strings
+1510 t=ti
+1520 s=0
+1530 for i=1 to 20
+1540 a$="abcdefghijklmnopqrstuvwxyz"
+1550 b$="zyxwvutsrqponmlkjihgfedcba"
+1560 c$=a$+b$
+1570 next i
+1580 s=s+1
+1590 if ti-t<=1200 then goto 1530
 
-1700 t=ti
-1710 l=0
-1720 for i=1 to 20
-1730 for j=1 to 20: next j
-1740 next i
-1750 l=l+1
-1760 if ti-t<=1200 then goto 1720
+1700 rem benchmark for loops
+1710 t=ti
+1720 l=0
+1730 for i=1 to 20
+1740 for j=1 to 20: next j
+1750 next i
+1760 l=l+1
+1770 if ti-t<=1200 then goto 1730
 
-1800 goto 1820
-1810 return
-1820 t=ti
-1830 g=0
-1840 for i=1 to 20
-1850 gosub 1810:gosub 1900
-1860 next i
-1870 g=g+1
-1880 if ti-t<=1200 then goto 1840
-1890 goto 1910
-1900 return
-1910 :
+1800 rem benchmark gosubs
+1810 goto 1830
+1820 return
+1830 t=ti
+1840 g=0
+1850 for i=1 to 20
+1860 gosub 1820:gosub 1910
+1870 next i
+1880 g=g+1
+1890 if ti-t<=1200 then goto 1850
+1900 goto 1920
+1910 return
+1920 :
 
-2000 t=ti
-2010 a=0
-2020 for i=1 to 20
-2030 ar(i)=i:b=ar(i)
-2040 next i
-2050 a=a+1
-2060 if ti-t<=1200 then goto 2020
+2000 rem benchmark arrays
+2010 t=ti
+2020 a=0
+2030 for i=1 to 20
+2040 ar(i)=i:b=ar(i)
+2050 next i
+2060 a=a+1
+2070 if ti-t<=1200 then goto 2030
 
 
-2200 t=ti
-2210 m=0
-2220 ka=5
-2230 kb=6.2
-2240 for i=1 to 20
-2250 r=ka+kb-ka/kb*ka*kb
-2260 r=5+6.2-5/6.2*5*6.2
-2270 next i
-2280 m=m+1
-2290 if ti-t<=1200 then goto 2240
+2200 rem benchmark maths
+2210 t=ti
+2220 m=0
+2230 ka=5
+2240 kb=6.2
+2250 for i=1 to 20
+2260 r=ka+kb-ka/kb*ka*kb
+2270 r=5+6.2-5/6.2*5*6.2
+2280 next i
+2290 m=m+1
+2300 if ti-t<=1200 then goto 2250
 
 3010 print:print
 3020 print "results"
