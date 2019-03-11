@@ -10,4 +10,4 @@
 
 ## Create `.dsk` File With the Basic Source File
 
-To create the `.dsk` file and put `bench_cpc.bas` onto it.  I used [P3Explorer](http://www.worldofspectrum.org/pub/sinclair/tools/pc/P3Explorer.zip).  Because AMSDOS expectes the filename to be in capitals, I first renamed the file to `BENCH.BAS`.
+To create the `.dsk` file and put `bench_cpc.bas` onto it.  I used [P3Explorer](http://www.worldofspectrum.org/pub/sinclair/tools/pc/P3Explorer.zip).  Because AMSDOS expects the filename to be in capitals, I first renamed the file to `BENCH.BAS`.
